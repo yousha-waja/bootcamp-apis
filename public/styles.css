@@ -1,0 +1,25 @@
+body {
+    background-image: url('./images/x.png');
+    background-size: 80vh; /* You can adjust this based on your preferences */
+    background-position-x: center;
+  }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* 100% of the viewport height */
+    justify-content: space-between; /* Distribute sections vertically */
+  }
+
+main > div {
+    background-color: rgba(146, 30, 255, 0.934);
+    border-radius: 7dvh;
+    margin: 1% 0%;
+    
+}
+
+main div h5{
+    margin: 0% 2dvh;
+    border-top-left-radius: 100dvh;
+    border-top-right-radius: 100dvh;
+}

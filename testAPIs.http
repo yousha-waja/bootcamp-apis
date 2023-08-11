@@ -1,0 +1,34 @@
+### Word_game API
+GET http://localhost:3011/api/word_game?sentence="lolabj m jsbinfpsfks"
+
+### Get total phone bill
+POST http://localhost:3011/api/phonebill/total
+content-type: application/json
+
+{
+	"bill" : "sms,call,sms "
+}
+
+### Get the prices of an sms and a call
+
+GET http://localhost:3011/api/phonebill/prices
+
+### change the price of a call or sms
+
+POST http://localhost:3011/api/phonebill/price
+content-type: application/json
+
+{
+  "type" : "call",
+  "newPrice" : 2.99852
+}
+
+### Check if there is enough airtime available for projected usage.
+
+POST http://localhost:3011/api/enough
+Content-Type: application/json
+
+{
+  "usage": "sms",
+	"available" : 0.9
+}
