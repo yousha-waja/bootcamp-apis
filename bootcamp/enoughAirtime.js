@@ -20,7 +20,11 @@ export default function enoughAirtime(string,integer){
      
        if(total<integer){
          return "Sufficient funds: After your projected usage you will still have R"+(integer-total).toFixed(2)+" worth of airtime.";
-         }else {
+         }
+        else if(total==integer){
+          return "Sufficient funds: After your projected usage you will have R0.00 worth of airtime." 
+        } 
+        else {
            return "Insufficient funds: R"+(total-integer).toFixed(2)+" worth of additional airtime is required.";
          }
 }   
