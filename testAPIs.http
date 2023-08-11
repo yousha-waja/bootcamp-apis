@@ -25,7 +25,7 @@ content-type: application/json
 
 ### Check if there is enough airtime available for projected usage.
 
-POST http://localhost:3011/api/enough
+POST https://bootcamp-apis-8kz9.onrender.com/api/enough
 Content-Type: application/json
 
 {

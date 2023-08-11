@@ -9,7 +9,7 @@ document.addEventListener("alpine:init", () => {
 
       //Word Game
       wordGame(){
-        axios.get(`http://localhost:3011/api/word_game?sentence=${this.sentence}`).then((result) => {
+        axios.get(`https://bootcamp-apis-8kz9.onrender.com/api/word_game?sentence=${this.sentence}`).then((result) => {
           this.longestWord = `The longest word is, ${result.data.longestWord}.`;
           this.shortestWord = `The shortest word is, ${result.data.shortestWord}.`;
           this.wordCount = `The word count = ${result.data.sum}.`;
@@ -41,7 +41,7 @@ document.addEventListener("alpine:init", () => {
       showBillInput:true,
       button2:true,
       totalPhoneBill(){
-        axios.post('http://localhost:3011/api/phonebill/total', {
+        axios.post('https://bootcamp-apis-8kz9.onrender.com/api/phonebill/total', {
           bill: this.bill
         }).then((result)=>{
            this.answer2 = result.data.total;
@@ -65,7 +65,7 @@ document.addEventListener("alpine:init", () => {
       showPrices:false,
       displayButton:false,
       displayPrices(){
-          axios.get('http://localhost:3011/api/phonebill/prices').then((result)=>{
+          axios.get('https://bootcamp-apis-8kz9.onrender.com/api/phonebill/prices').then((result)=>{
               this.prices = `A call cost R${result.data.call} and a sms cost R${result.data.sms}`;
               this.showPrices = true;
               this.showBillInput =false;
@@ -102,7 +102,7 @@ document.addEventListener("alpine:init", () => {
     }
     ,
       changePrice(){
-        axios.post('http://localhost:3011/api/phonebill/price', {
+        axios.post('https://bootcamp-apis-8kz9.onrender.com/api/phonebill/price', {
             newPrice: this.newPrice,
             type: this.type
         })
@@ -150,6 +150,8 @@ document.addEventListener("alpine:init", () => {
         this.answer2='';
         this.answer3='';
         this.displayButton = false;
+        this.prices = '';
+        this.disableShowMenu=false; 
       },
 
       //Enough Airtime
@@ -160,7 +162,7 @@ document.addEventListener("alpine:init", () => {
       showLastInputs:true,
 
       enoughAirtime(){
-        axios.post('http://localhost:3011/api/enough', {
+        axios.post('https://bootcamp-apis-8kz9.onrender.com/api/enough', {
           usage : this.dataUsage,
           available : parseFloat(this.airtimeBudget).toFixed(2),
         }).then((result)=>{
