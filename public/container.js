@@ -16,14 +16,6 @@ document.addEventListener("alpine:init", () => {
           this.answer1Show = true;
           this.sentence = '';
           this.button1 = true;
-          setTimeout(()=>{
-            this.sentence ='';
-            this.longestWord ='';
-            this.shortestWord ='';
-            this.wordCount = '';
-            this.answer1Show = false;
-          },5000);
-
       })
       },
       reset1(){
@@ -49,12 +41,12 @@ document.addEventListener("alpine:init", () => {
            this.showBill = true;
            this.showBillInput = false;
            this.button2 = true;
-           setTimeout(()=>{
+           /* setTimeout(()=>{
             this.bill = '';
             this.answer2 = '';
             this.showBill=false;
             this.showBillInput=true;
-           },5000)
+           },5000) */
         }).catch((error) => {
           console.error("An error occurred:", error);
           // Handle the error and provide feedback to the user
@@ -74,6 +66,8 @@ document.addEventListener("alpine:init", () => {
               this.showBillInput = false;
               this.button2 = true;
               this.disableShowMenu=true;
+              this.answer2 = '';
+              this.answer3='';
               setTimeout(()=>{
                  this.prices = '';
                  this.showPrices = false;
@@ -93,12 +87,14 @@ document.addEventListener("alpine:init", () => {
       disableShowMenu:false,
       showChanges(){
         this.prices = ''; // Reset the prices
+        this.answer2='';
         this.showInputs = true; // Toggle the showInputs property
         this.showBillInput = false; // Set showBillInput to false
         this.showChangePrice = false; // Toggle the showChangePrice property
         this.submitChangePrice = true; // Toggle the submitChangePrice property
         this.button2 = true; // Set button2 to true
         this.displayButton = true; // Set displayButton to true
+        this.answer3='';
     }
     ,
       changePrice(){
@@ -110,14 +106,14 @@ document.addEventListener("alpine:init", () => {
           if(result.data.status === 'error'){
             this.answer3 = result.data.message;
             this.showBillInput = false;
-            this.showInputs = true;
+            this.showInputs = false;
             this.newPrice = '';
             this.type = '';
             this.showAnswer3 = true;
-            setTimeout(()=>{
+/*             setTimeout(()=>{
               this.answer3='';
               this.showAnswer3='';
-            },4500);
+            },4500); */
           }else if(result.data.status === 'success'){
             this.answer3 = result.data.message;
             this.showBillInput = false;
@@ -127,12 +123,12 @@ document.addEventListener("alpine:init", () => {
             this.submitChangePrice = false; 
             this.newPrice = '';
             this.type = '';
-            setTimeout(()=>{
+            this.displayButton = false;
+/*             setTimeout(()=>{
               this.answer3='';
               this.showAnswer3='';
-              this.showBillInput = true;
-              this.displayButton = false;
-            },4500);
+              
+            },4500);  */
           }
         })
     }
@@ -169,13 +165,13 @@ document.addEventListener("alpine:init", () => {
           this.answer4 = result.data.result;
           this.showLastInputs = false;
           this.showAnswer4 = true;
-          setTimeout(()=>{
+          /* setTimeout(()=>{
             this.dataUsage='';
             this.airtimeBudget='';
             this.answer4='';
             this.showAnswer4=false;
             this.showLastInputs=true;
-          },5200)
+          },5200) */
         })
       },
 

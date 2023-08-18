@@ -19,8 +19,8 @@ POST http://localhost:3011/api/phonebill/price
 content-type: application/json
 
 {
-  "type" : "call",
-  "newPrice" : 2.99852
+  "type":"Call",
+  "newPrice":"6"
 }
 
 ### Check if there is enough airtime available for projected usage.
