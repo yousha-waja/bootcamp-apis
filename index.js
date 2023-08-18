@@ -36,9 +36,12 @@ app.post('/api/phonebill/total', (req, res) => {
 
 // get prices for an sms and a call
 app.get('/api/phonebill/prices', (req,res)=>{
+
+  const sms = req.query.sms;
+  const call = req.query.call;
    res.json({
-    call : 2.75,
-    sms : 0.65
+    call : call,
+    sms : sms
    })
 });
 
@@ -57,6 +60,8 @@ app.post('/api/phonebill/price', (req, res) => {
   res.json({
       status: 'success',
       message: `The price of a ${type} has been changed to, R${newPrice}`,
+      type: type,
+      newPrice : parseFloat(newPrice)
   });
 });
 

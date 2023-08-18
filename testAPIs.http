@@ -19,8 +19,8 @@ POST http://localhost:3011/api/phonebill/price
 content-type: application/json
 
 {
-  "type":"Call",
-  "newPrice":"6"
+  "type":"sms",
+  "newPrice":"61"
 }
 
 ### Check if there is enough airtime available for projected usage.
@@ -29,6 +29,6 @@ POST https://bootcamp-apis-8kz9.onrender.com/api/enough
 Content-Type: application/json
 
 {
-  "usage": "sms",
+  "usage": "awdaw",
 	"available" : 0.9
 }

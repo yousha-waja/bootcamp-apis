@@ -56,8 +56,8 @@ document.addEventListener("alpine:init", () => {
       prices:'',
       showPrices:false,
       displayButton:false,
-      displayPrices(){
-          axios.get('https://bootcamp-apis-8kz9.onrender.com/api/phonebill/prices').then((result)=>{
+/*       displayPrices(){
+          axios.get(`https://bootcamp-apis-8kz9.onrender.com/api/phonebill/prices?call=callAmount&sms=smsAmount`).then((result)=>{
               this.prices = `A call cost R${result.data.call} and a sms cost R${result.data.sms}`;
               this.showPrices = true;
               this.showBillInput =false;
@@ -75,7 +75,7 @@ document.addEventListener("alpine:init", () => {
                  this.disableShowMenu=false; 
               },5000)
           });
-      },
+      }, */
 
       newPrice:'',
       type:'',
@@ -95,7 +95,9 @@ document.addEventListener("alpine:init", () => {
         this.button2 = true; // Set button2 to true
         this.displayButton = true; // Set displayButton to true
         this.answer3='';
-    }
+    },
+    callAmount: 2.75,
+    smsAmount: 0.65
     ,
       changePrice(){
         axios.post('https://bootcamp-apis-8kz9.onrender.com/api/phonebill/price', {
@@ -115,6 +117,11 @@ document.addEventListener("alpine:init", () => {
               this.showAnswer3='';
             },4500); */
           }else if(result.data.status === 'success'){
+            if(result.data.type === "sms"){
+              this.smsAmount = parseFloat(result.data.newPrice);
+            }else{
+              this.callAmount = parseFloat(result.data.newPrice);
+            };
             this.answer3 = result.data.message;
             this.showBillInput = false;
             this.showInputs = false;
@@ -131,7 +138,25 @@ document.addEventListener("alpine:init", () => {
             },4500);  */
           }
         })
-    }
+    },
+    displayPrices(){
+          this.prices = `A call cost R${this.callAmount} and a sms cost R${this.smsAmount}`;
+          this.showPrices = true;
+          this.showBillInput =false;
+          this.bill = '';
+          this.showBill = true;
+          this.showBillInput = false;
+          this.button2 = true;
+          this.disableShowMenu=true;
+          this.answer2 = '';
+          this.answer3='';
+          setTimeout(()=>{
+             this.prices = '';
+             this.showPrices = false;
+             this.showBillInput =true;
+             this.disableShowMenu=false; 
+          },5000);
+  }
     ,
       reset3(){
         this.newPrice='';
