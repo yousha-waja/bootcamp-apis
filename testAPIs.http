@@ -11,7 +11,7 @@ content-type: application/json
 
 ### Get the prices of an sms and a call
 
-GET http://localhost:3011/api/phonebill/prices
+GET http://localhost:3011/api/phonebill/prices?sms=12&call=23
 
 ### change the price of a call or sms
 
