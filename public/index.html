@@ -127,6 +127,7 @@
               name="action"
               x-bind:disabled="button2"
               x-on:click="totalPhoneBill()"
+              style="margin: 1% 0%"
             >
               Total bill
             </button>
@@ -136,6 +137,7 @@
               name="action"
               x-on:click="displayPrices()"
               :disabled="displayButton"
+              style="margin: 1% 0%"
             >
               Display prices
             </button>
@@ -146,6 +148,7 @@
               x-on:click="showChanges()"
               x-show="showChangePrice"
               :disabled="disableShowMenu"
+              style="margin: 1% 0%"
             >
               Show menu to change data price
             </button>
@@ -156,6 +159,7 @@
               x-on:click="changePrice()"
               x-show="submitChangePrice"
               :disabled="type === '' || newPrice === '' || isNaN(newPrice)"
+              style="margin: 1% 0%"
             >
               Submit data price changes
             </button>
@@ -164,6 +168,7 @@
               type="submit"
               name="action"
               x-on:click="reset3()"
+              style="margin: 1% 0%"
             >
               Reset
             </button>
