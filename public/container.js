@@ -172,6 +172,7 @@ document.addEventListener("alpine:init", () => {
           this.answer4 = result.data.result;
           this.showLastInputs = false;
           this.showAnswer4 = true;
+          this.dataUsage ='';
           /* setTimeout(()=>{
             this.dataUsage='';
             this.airtimeBudget='';
