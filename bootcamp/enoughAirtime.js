@@ -2,14 +2,14 @@ export default function enoughAirtime(string,integer){
     let arr=string.toLowerCase().split(',');
     let total =0;
      for(let i=0;i<arr.length;i++){
-      const item = arr[i].trim();
-       if(item.includes("call")){
+      const item = arr[i].trim().toLowerCase();
+       if(item==="call"){
           total+= 1.88;
        }
-       else if(item.includes("data")){
+       else if(item==="data"){
          total += 12;
        }
-       else if(item.includes("sms")){
+       else if(item==="sms"){
          total+= 0.75;
        }
        else if(item !=='sms' || item !=='data' || item !=='call'){
